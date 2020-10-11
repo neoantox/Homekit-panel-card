@@ -123,7 +123,7 @@ class HomeKitCard extends LitElement {
 
   _getEntitiesFromRoot(root) {
     if ("entities" in root) {
-      return root.map(e => {
+      return root.entities.map(e => {
         return {...(root.entities_defaults ?? {}), ...e}
       });
     }
