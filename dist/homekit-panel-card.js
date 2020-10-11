@@ -47,7 +47,7 @@ var t=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'
           <div class="row">
             ${t.columns.map(t=>K`
                 <div class="col${t.tileOnRow?" fixed":""}" style="${t.tileOnRow?"--tile-on-row:"+t.tileOnRow:""}">
-                  ${this._renderEntities(this._getEntitiesFromRoot(t.entities))}
+                  ${this._renderEntities(this._getEntitiesFromRoot(t))}
                 </div>
               `)}
           </div>

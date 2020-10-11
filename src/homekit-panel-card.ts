@@ -198,7 +198,7 @@ class HomeKitCard extends LitElement {
             ${row.columns.map(column => {
               return html`
                 <div class="col${column.tileOnRow ? ' fixed' : ''}" style="${column.tileOnRow ? '--tile-on-row:'+column.tileOnRow:''}">
-                  ${this._renderEntities(this._getEntitiesFromRoot(column.entities))}
+                  ${this._renderEntities(this._getEntitiesFromRoot(column))}
                 </div>
               `;
             })}
