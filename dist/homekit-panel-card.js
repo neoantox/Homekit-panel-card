@@ -889,7 +889,7 @@ var t=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'
 
       .spin {      
         animation-name: spin;
-        animation-duration: 1000ms;
+        animation-duration: 2000ms;
         animation-iteration-count: infinite;
         animation-timing-function: linear; 
       }
