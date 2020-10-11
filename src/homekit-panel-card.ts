@@ -970,7 +970,7 @@ class HomeKitCard extends LitElement {
         width: calc((var(--tile-width, 100px) * 2) + (20px * 1) + (5px * 2) - 4px);
       }
       .button.size-3 {
-        width: calc((var(--tile-width, 100px) * 3) + (20px * 2) + (5px * 3) - 4px);
+        width: calc((var(--tile-width, 100px) * 3) + (20px * 2) + (5px * 3) + 4px);
       }
       .button.size-4 {
         width: calc((var(--tile-width, 100px) * 4) + (20px * 3) + (5px * 4) - 4px);
@@ -1002,7 +1002,7 @@ class HomeKitCard extends LitElement {
         width: calc((var(--tile-width, 100px) * 2) + (20px * 1) + (5px * 2) + 20px - 4px);
       }
       .button.size-3.no-padding {
-        width: calc((var(--tile-width, 100px) * 3) + (20px * 2) + (5px * 3) + 20px - 4px);
+        width: calc((var(--tile-width, 100px) * 3) + (20px * 2) + (5px * 3) + 20px + 4px);
       }
       .button.size-4.no-padding {
         width: calc((var(--tile-width, 100px) * 4) + (20px * 3) + (5px * 4) + 20px - 4px);
@@ -1354,7 +1354,7 @@ class HomeKitCard extends LitElement {
           width: calc((var(--tile-width-mobile, 90px) * 2) + (20px * 1) + (5px * 2) - 4px);
         }
         .button.size-3 {
-          width: calc((var(--tile-width-mobile, 90px) * 3) + (20px * 2) + (5px * 3) - 4px);
+          width: calc((var(--tile-width-mobile, 90px) * 3) + (20px * 2) + (5px * 3) + 4px);
         }
         .button.size-4 {
           width: calc((var(--tile-width-mobile, 90px) * 4) + (20px * 3) + (5px * 4) - 4px);
@@ -1386,7 +1386,7 @@ class HomeKitCard extends LitElement {
           width: calc((var(--tile-width-mobile, 90px) * 2) + (20px * 1) + (5px * 2) + 20px - 4px);
         }
         .button.size-3.no-padding {
-          width: calc((var(--tile-width-mobile, 90px) * 3) + (20px * 2) + (5px * 3) + 20px - 4px);
+          width: calc((var(--tile-width-mobile, 90px) * 3) + (20px * 2) + (5px * 3) + 20px + 4px);
         }
         .button.size-4.no-padding {
           width: calc((var(--tile-width-mobile, 90px) * 4) + (20px * 3) + (5px * 4) + 20px - 4px);
@@ -1488,4 +1488,5 @@ class HomeKitCard extends LitElement {
   }
 }
 
+// @ts-ignore
 customElements.define("homekit-card", HomeKitCard);
