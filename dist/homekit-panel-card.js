@@ -40,14 +40,14 @@ var t=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'
             </div>
         `:K``}
        
-        ${this.enableColumns?this._renderRows():this._renderEntities(this._getEntitiesFromRoot(this.config))}
+        ${this.enableColumns?this._renderRows():this._renderEntities(this.config.entities)}
       </div>
     `}_getEntitiesFromRoot(t){return"entities"in t?t.entities.map(e=>{var i;return Object.assign(Object.assign({},null!==(i=t.entities_defaults)&&void 0!==i?i:{}),e)}):[]}firstUpdated(){for(var t=this.shadowRoot.querySelectorAll("homekit-button.event"),e=0;e<t.length;e++)this.addHammer(t[e]);if(this.shadowRoot.querySelectorAll(".card-tile").forEach(t=>{var e={type:t.dataset.card};e=Object.assign({},e,JSON.parse(t.dataset.options));const i=(n=e,ct?ct.createCardElement(n):pt("card",n));var n,o;t.appendChild(i),o=i,document.querySelector("hc-main")?document.querySelector("hc-main").provideHass(o):document.querySelector("home-assistant")&&document.querySelector("home-assistant").provideHass(o);let r="";if(t.dataset.style?r=t.dataset.style:"custom:mini-graph-card"==t.dataset.card&&(r=":host { height: 100%; } ha-card { background: transparent; color: #000; padding: 0!important; box-shadow: none; } .header { padding: 10px 10px 0 10px; } .header .name, .header .name .ellipsis { font-size: 13px!important; font-weight: 500; color: #000; opacity: 1; } .header icon { color: #f7d959; } .states { padding: 0 10px; } .states .state .state__value { font-size: 13px; } .states .state .state__uom { font-size: 13px; margin-top: 0; line-height: normal; } .header .icon { color: #f7d959; }"),""!=r){let t=0,e=setInterval((function(){if(i&&i.shadowRoot){window.clearInterval(e);var n=document.createElement("style");n.innerHTML=r,i.shadowRoot.appendChild(n)}else 10==++t&&window.clearInterval(e)}),100)}}),this.masonry){console.log("MASONRY");var i=window.innerWidth;console.log(i);var n=120;i<=768&&(n=110),this.shadowRoot.querySelectorAll(".homekit-card").forEach(t=>{console.log(t),new _t(t,{itemSelector:"homekit-button",columnWidth:n,gutter:6})})}}updated(){this._renderRules()}_renderRows(){return K`
       ${this.config.rows.map(t=>K`
           <div class="row">
             ${t.columns.map(t=>K`
                 <div class="col${t.tileOnRow?" fixed":""}" style="${t.tileOnRow?"--tile-on-row:"+t.tileOnRow:""}">
-                  ${this._renderEntities(this._getEntitiesFromRoot(t))}
+                  ${this._renderEntities(t.entities)}
                 </div>
               `)}
           </div>
@@ -91,7 +91,7 @@ var t=/d{1,4}|M{1,4}|YY(?:YY)?|S{1,3}|Do|ZZ|Z|([HhMsDm])\1?|[aA]|"[^"]*"|'[^']*'
       ${t.map(t=>{var e=0;return K`
             <div class="card-title" style="${this.rowTitleColor?"color:"+this.rowTitleColor:""}">${t.title}</div>
                 <div class="homekit-card${!0===this.horizontalScroll?" scroll":""}${!0===this.masonry?" masonry":""}">
-                    ${t.entities.map(i=>{if(!i.card&&!i.custom){var n=["off","unavailable"];i.offStates&&(n=i.offStates);const a=this.hass.states[i.entity];var o="#f7d959";3==e&&(e=0),4==e&&(e=2),o=i.color?i.color:this._getColorForLightEntity(a,this.useTemperature,this.useBrightness);var r=i.entity.split(".")[0];if("light"==r)return e++,i.slider?a?K`
+                    ${this._getEntitiesFromRoot(t).map(i=>{if(!i.card&&!i.custom){var n=["off","unavailable"];i.offStates&&(n=i.offStates);const a=this.hass.states[i.entity];var o="#f7d959";3==e&&(e=0),4==e&&(e=2),o=i.color?i.color:this._getColorForLightEntity(a,this.useTemperature,this.useBrightness);var r=i.entity.split(".")[0];if("light"==r)return e++,i.slider?a?K`
                                 <homekit-button class="event slider ${n.includes(a.state)?"button":"button on"}${i.noPadding?" no-padding":""}${i.wider?i.widerSize?" size-"+i.widerSize:" size-2":""}${i.higher?i.higherSize?" height-"+i.higherSize:" height-2":""}${i.halfheight?" height-half":""}${this.tileHoldAnimation?" animate":""}${i.hide&&this._getTemplate(a,i.hide)?" hide":""}${i.conditionalClass?" "+this._getTemplate(a,i.conditionalClass):""}" data-ent="${JSON.stringify(i)}" data-type="${r}" data-row="${JSON.stringify(t)}">
                                     <div class="button-inner${this.statePositionTop?" state-top":""}">
                                       <span class="icon${!0!==i.spin||n.includes(a.state)?"":" spin"}${i.image?" image":""}" style="${n.includes(a.state)?"":"color:"+o+";"}">

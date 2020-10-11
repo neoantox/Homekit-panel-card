@@ -115,7 +115,7 @@ class HomeKitCard extends LitElement {
             </div>
         `: html ``}
        
-        ${this.enableColumns ? this._renderRows() : this._renderEntities(this._getEntitiesFromRoot(this.config))}
+        ${this.enableColumns ? this._renderRows() : this._renderEntities(this.config.entities)}
       </div>
     `;
     
@@ -198,7 +198,7 @@ class HomeKitCard extends LitElement {
             ${row.columns.map(column => {
               return html`
                 <div class="col${column.tileOnRow ? ' fixed' : ''}" style="${column.tileOnRow ? '--tile-on-row:'+column.tileOnRow:''}">
-                  ${this._renderEntities(this._getEntitiesFromRoot(column))}
+                  ${this._renderEntities(column.entities)}
                 </div>
               `;
             })}
@@ -346,7 +346,7 @@ class HomeKitCard extends LitElement {
         return html`
             <div class="card-title" style="${this.rowTitleColor ? 'color:'+this.rowTitleColor : ''}">${row.title}</div>
                 <div class="homekit-card${this.horizontalScroll === true ? ' scroll': ''}${this.masonry === true ? ' masonry' : ''}">
-                    ${row.entities.map(ent => {
+                    ${this._getEntitiesFromRoot(row).map(ent => {
                       if(!ent.card && !ent.custom) {
                         var offStates = ['off', 'unavailable'];
                         if(ent.offStates) {
