@@ -115,10 +115,19 @@ class HomeKitCard extends LitElement {
             </div>
         `: html ``}
        
-        ${this.enableColumns ? this._renderRows() : this._renderEntities(this.config.entities)}
+        ${this.enableColumns ? this._renderRows() : this._renderEntities(this._getEntitiesFromRoot(this.config))}
       </div>
     `;
     
+  }
+
+  _getEntitiesFromRoot(root) {
+    if ("entities" in root) {
+      return root.map(e => {
+        return {...(root.entities_defaults ?? {}), ...e}
+      });
+    }
+    return [];
   }
 
   firstUpdated() {
@@ -189,7 +198,7 @@ class HomeKitCard extends LitElement {
             ${row.columns.map(column => {
               return html`
                 <div class="col${column.tileOnRow ? ' fixed' : ''}" style="${column.tileOnRow ? '--tile-on-row:'+column.tileOnRow:''}">
-                  ${this._renderEntities(column.entities)}
+                  ${this._renderEntities(this._getEntitiesFromRoot(column.entities))}
                 </div>
               `;
             })}
