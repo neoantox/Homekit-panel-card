@@ -966,6 +966,9 @@ class HomeKitCard extends LitElement {
         height:calc((var(--tile-height, 100px) * 0.5) - 3px + 10px);
       }
 
+      .button.size-1-half {
+        width: calc((var(--tile-width, 100px) * 1.5) + (20px * 0) + (5px * 2) + 4px);
+      }
       .button.size-2 {
         width: calc((var(--tile-width, 100px) * 2) + (20px * 1) + (5px * 2) - 4px);
       }
@@ -998,6 +1001,9 @@ class HomeKitCard extends LitElement {
         height: calc((var(--tile-height, 100px) * 6) + (20px * 5) + (5px * 6) - 3px);
       }
 
+      .button.size-1-half.no-padding {
+        width: calc((var(--tile-width, 100px) * 1.5) + (20px * 0) + (5px * 2) + 20px - 4px);
+      }
       .button.size-2.no-padding {
         width: calc((var(--tile-width, 100px) * 2) + (20px * 1) + (5px * 2) + 20px - 4px);
       }
@@ -1350,6 +1356,9 @@ class HomeKitCard extends LitElement {
           height: calc((var(--tile-height-mobile, 90px) * 0.5) - 3px + 10px);
         }
 
+        .button.size-1-half {
+          width: calc((var(--tile-width-mobile, 90px) * 1.5) + (20px * 0) + (5px * 2) + 4px);
+        }
         .button.size-2 {
           width: calc((var(--tile-width-mobile, 90px) * 2) + (20px * 1) + (5px * 2) - 4px);
         }
@@ -1382,6 +1391,9 @@ class HomeKitCard extends LitElement {
           height: calc((var(--tile-height-mobile, 90px) * 6) + (20px * 5) + (5px * 6) - 3px);
         }
   
+        .button.size-1-half.no-padding {
+          width: calc((var(--tile-width-mobile, 90px) * 1.5) + (20px * 0) + (5px * 2) + 20px + 4px);
+        }
         .button.size-2.no-padding {
           width: calc((var(--tile-width-mobile, 90px) * 2) + (20px * 1) + (5px * 2) + 20px - 4px);
         }
@@ -1426,11 +1438,11 @@ class HomeKitCard extends LitElement {
         .header, .card-title, .homekit-card {
           width: 358px;
           text-align: left;
-          padding:0!important;
           margin: 0 auto;
         }
         .card-title {
           padding-bottom:0;
+          padding-left: 14px;
         }
         homekit-button .name {
           font-size:13px;
